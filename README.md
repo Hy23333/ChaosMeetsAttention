@@ -1,8 +1,43 @@
+
+
+
 # Updates to Reviewer BWmX
+
+## A. Extending to ODE case Lorenz 63
+
+| Lorenz63 ($dt=0.05s$) | Mean Lyapunov Exponent | Max Lyapunov Exponent | Lyapunov Time |
+| ----------------------- | ----------------------: | --------------------: | ------------: |
+| True Data               |                  132.52 |                137.84 |        7.5e-3 |
+| MNO Prediction          |                  143.07 |                148.41 |        6.9e-3 |
+| Our Prediction          |                  128.61 |                133.92 |        7.7e-3 |
 
 | Lyapunov Exponent Spectra                            | Spatial correlation visualization                                             | Our prediction on L63 trajectory              |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
 | ![exponent_spectra](image/README/exponent_spectra.png) | ![Spatial Correlation Match](image/rebuttal_BWmX/spatial_corr_match_small2.png) | ![L63_traj_pred](image/lorenz63_trajectory2.gif) |
+
+## B. Updated table 1&2
+
+**Updated Table 1.** Short-term accuracy standard deviation updates and long-term performance of baselines and our transformer prediction on KF256.
+
+| Models                  | τ = 5                    | τ = 25                   | ME-APE                    | ME-LRw                    | Δλ                      | KLD                       |
+| ----------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- |
+| MNO                     | 1.02 ± 1.5E-02           | 1.29 ± 1.5E-02           | 0.42 ± 6.1E-05           | 0.70 ± 4.8E-05           | 0.40 ± 4.9E-05           | 0.42 ± 7.8E-05           |
+| UNO                     | 0.92 ± 7.5E-02           | 1.32 ± 1.6E-02           | 0.22 ± 8.3E-06           | 0.36 ± 3.5E-05           | 0.11 ± 1.5E-05           | 0.38 ± 9.5E-06           |
+| MWT                     | 0.95 ± 5.2E-03           | 1.32 ± 6.4E-03           | 0.26 ± 6.2E-05           | 0.39 ± 2.9E-05           | 0.17 ± 1.0E-05           | 0.40 ± 3.7E-05           |
+| FactFormer              | 0.97 ± 8.3E-03           | 1.35 ± 1.2E-02           | 0.13 ± 1.5E-05           | 0.19 ± 8.1E-05           | 0.10 ± 7.8E-06           | 0.37 ± 5.5E-05           |
+| **Ours**          | **0.86 ± 8.1E-03** | **1.27 ± 4.3E-03** | **0.10 ± 5.8E-06** | **0.15 ± 1.4E-05** | **0.08 ± 6.2E-06** | **0.29 ± 8.3E-06** |
+| **Advantage (%)** | **6.52 ± 6.0E-01** | **1.55 ± 5.8E-01** | **23.1**            | **21.0**            | **20.0**            | **21.6**            |
+
+**Updated Table 2.** Short-term accuracy standard deviation updates and long-term prediction performance of baselines and our transformer predictions for TCF.
+
+| Models                  | τ = 5                    | τ = 25                   | ME-APE                    | ME-LRw                    | Δλ                      | KLD                       |
+| ----------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- | ------------------------- |
+| MNO                     | 0.08 ± 9.8E-03           | 0.24 ± 4.9E-03           | 0.84 ± 4.7E-04           | 1.95 ± 8.3E-04           | 0.11 ± 7.5E-05           | 3.73 ± 6.3E-04           |
+| UNO                     | 0.07 ± 8.4E-03           | 0.19 ± 8.1E-03           | 0.86 ± 7.0E-04           | 2.07 ± 4.5E-04           | 0.12 ± 6.8E-05           | 4.89 ± 4.3E-04           |
+| MWT                     | 0.04 ± 8.7E-03           | 0.14 ± 8.0E-03           | 0.21 ± 8.3E-05           | 0.19 ± 8.1E-05           | 0.11 ± 4.6E-05           | 2.70 ± 7.2E-05           |
+| FactFormer              | 0.09 ± 7.0E-03           | 0.17 ± 6.7E-03           | 0.13 ± 6.8E-05           | 0.12 ± 7.3E-05           | 0.23 ± 3.1E-05           | 3.34 ± 3.4E-04           |
+| **Ours**          | **0.03 ± 7.6E-03** | **0.13 ± 6.3E-03** | **0.09 ± 6.0E-06** | **0.09 ± 8.4E-06** | **0.08 ± 5.2E-05** | **1.97 ± 6.3E-05** |
+| **Advantage (%)** | **25.0 ± 7.7E-01** | **7.14 ± 4.0E-01** | **30.8**            | **25.0**            | **27.3**            | **27.0**            |
 
 # ChaosMeetsAttention
 
