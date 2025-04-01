@@ -107,11 +107,11 @@ TKE
 
 Dataset details of the paper  "Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction".
 
-The dataset sample of Turbulent Channel Flow is available via the link ([https://filebin.net/37p4dxup0t320143])
+The dataset sample of Turbulent Channel Flow is available via the link (https://filebin.net/37p4dxup0t320143)
 
 # Code submission to ICML 2025
 
-The code is devloped for modeling large-scale chaos, modifying the base code from the repo [FactFormer](https://github.com/BaratiLab/FactFormer).
+The code is devloped for modeling large-scale chaos, modifying the base code from the repo [FactFormer].
 
 Please incorporate datasets into the `/data` folder and define your local path before you start training or evaluation.
 
