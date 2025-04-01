@@ -69,7 +69,7 @@ TKE
 | MNO Prediction          |                  143.07 |                148.41 |        6.9e-3 |
 | Our Prediction          |                  128.61 |                133.92 |        7.7e-3 |
 
-| Lyapunov Exponent Spectra                            | Spatial correlation visualization                                             | Our prediction on L63 trajectory              |
+| Lyapunov Exponent Spectra                            | Spatial correlation visualization                                             | Our prediction on L63 trajectory (wait for the red-dot to move) |
 | ---------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
 | ![exponent_spectra](image/README/exponent_spectra.png) | ![Spatial Correlation Match](image/rebuttal_BWmX/spatial_corr_match_small2.png) | ![L63_traj_pred](image/lorenz63_trajectory2.gif) |
 
