@@ -48,7 +48,7 @@
 | Axial-Mean | 0.99   | 1.30    | 0.16   | 0.21   | 0.10 | 0.41 |
 | A3M        | 0.86   | 1.27    | 0.10   | 0.15   | 0.08 | 0.29 |
 
-      * A3M pooling outperforms mean pooling primarily due to its ability to accurately capture extreme values, which are crucial for chaos prediction. This results in better short-term accuracy, improved long-term distribution fitting, and preservation of the energy spectrum.
+      * A3M pooling outperforms mean pooling primarily due to accurately capture extreme values, which are crucial for chaos prediction. This results in better short-term accuracy, improved long-term distribution fitting, and preservation of the energy spectrum.
 
 ### References
 
