@@ -1,3 +1,16 @@
+# Rebuttal materials to the reviewers of ICML 2025 submission No. 2640
+
+- [Updates to reviewer vgH9](#updates-to-reviewer-vgh9)
+  - [A. Computational cost comparison](#a-computational-cost-comparison) (Related to reviewers **FGZz, ARTA**)
+  - [B. Unitary performer performance on TCF benchmark](#b-unitary-performer-performance-on-tcf-benchmark)
+    - [References](#references)
+- [Updates to reviewer ARTA](#updates-to-reviewer-arta) (Related to reviewers **vgH9, BWmX**)
+- [Updates to Reviewer BWmX](#updates-to-reviewer-bwmx) (Related to reviewers **vgH9**)
+  - [A. Extending to ODE case Lorenz 63](#a-extending-to-ode-case-lorenz-63)
+  - [B. Updated table 1&amp;2 with error bars and KL Divergence](#b-updated-table-12-with-error-bars-and-kl-divergence)
+  - [Reference](#reference-list)
+- [Updates to ALL : integrating performer attention in our setting (Unitary Performer).](#updates-to-all--integrating-performer-attention-in-our-setting-unitary-performer)
+
 # Updates to reviewer vgH9
 
 ## A. Computational cost comparison
@@ -22,7 +35,20 @@
 | Ours                        | 7325665           | 58ms            | 7684MB           | 268GB                  |
 | **Unitary Performer** | **7717931** | **111ms** | **2938MB** | **271GB**        |
 
-### ToDo Mean pooling table
+## B. Unitary performer performance on TCF benchmark
+
+| Models  | τ = 5 | τ = 25 | ME-APE | ME-LRw | Δλ | KLD    |
+| ------- | ------ | ------- | ------ | ------ | ---- | ------ |
+| UniPerf | 0.20   | 1.00    | 0.98   | 4.05   | 0.09 | 113.20 |
+
+## C. Mean pooling vs A3M pooling on KF256 benchmark
+
+| Models     | τ = 5 | τ = 25 | ME-APE | ME-LRw | Δλ | KLD  |
+| ---------- | ------ | ------- | ------ | ------ | ---- | ---- |
+| Axial-Mean | 0.99   | 1.30    | 0.16   | 0.21   | 0.10 | 0.41 |
+| A3M        | 0.86   | 1.27    | 0.10   | 0.15   | 0.08 | 0.29 |
+
+      * A3M pooling outperforms mean pooling primarily due to its ability to accurately capture extreme values, which are crucial for chaos prediction. This results in better short-term accuracy, improved long-term distribution fitting, and preservation of the energy spectrum.
 
 ### References
 
@@ -40,20 +66,6 @@
 
 [7] Schiff, Yair, et al. "DySLIM: dynamics stable learning by invariant measure for chaotic systems." Proceedings of the 41st International Conference on Machine Learning. 2024.
 
-# Updates to ALL : planting performer attention in our setting (Unitary Performer).
-
-Interesting findings with performer attention
-
-![UniPerf_spec](image/README/uniperf_spec.png)
-
-Time correlation
-
-![1743430261076](image/README/1743430261076.png)
-
-TKE
-
-![uniperf_tke](image/README/tcf_tke_uniperf.png)
-
 # Updates to reviewer ARTA
 
 | Figure. Eigenvalue of the learnt operators with/without Hutchinson’s trace estimation to approxiamte unitarity.<br />![eigenvalues](image/README/eigenvalues.png) |
@@ -69,9 +81,9 @@ TKE
 | MNO Prediction          |                  143.07 |                148.41 |        6.9e-3 |
 | Our Prediction          |                  128.61 |                133.92 |        7.7e-3 |
 
-| Lyapunov Exponent Spectra                            | Spatial correlation visualization                                             | Our prediction on L63 trajectory (wait for the red-dot to move) |
-| ---------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------------- |
-| ![exponent_spectra](image/README/exponent_spectra.png) | ![Spatial Correlation Match](image/rebuttal_BWmX/spatial_corr_match_small2.png) | ![L63_traj_pred](image/lorenz63_trajectory2.gif) |
+| Lyapunov Exponent Spectra                            | Spatial correlation visualization                                             | Our prediction on L63 trajectory<br />(this is a .gif file, which may appear static in .pfd file) |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| ![exponent_spectra](image/README/exponent_spectra.png) | ![Spatial Correlation Match](image/rebuttal_BWmX/spatial_corr_match_small2.png) | ![L63_traj_pred](image/lorenz63_trajectory2.gif)                                                     |
 
 ## B. Updated table 1&2 with error bars and KL Divergence
 
@@ -103,15 +115,32 @@ TKE
    [2] Schiff, Yair, et al. "Dyslim: Dynamics stable learning by invariant measure for chaotic systems." arXiv preprint arXiv:2402.04467 (2024).
    [3] Jiang, Ruoxi, et al. "Training neural operators to preserve invariant measures of chaotic attractors." Advances in Neural Information Processing Systems 36 (2023): 27645-27669.
 
-# ChaosMeetsAttention
+# Updates to ALL : integrating performer attention in our setting (Unitary Performer).
+
+Performer attention is widely applied in language models. We, the authors, are interested in its performance on the physics modality, such as the TCF benchmark. It is worth noting that we have smoothly integrated Performer attention into our framework, using the same configuration, setting the unitary operator, and applying the loss function. However, introducing this attention mechanism to the physics modality from language model settings requires meticulous checks and further validation.  
+
+Our implementation is a non-official version, made possible thanks to the [open-source contribution](https://github.com/lucidrains/performer-pytorch/tree/main), which is unrelated to us, the authors, and is available under the MIT License for rebuttal discussion on applying Performer in physics modalities.  
+
+Based on this foundation, we share some interesting preliminary results with the reviewers in the following figures. We also include the code (`./tcf_uniperf.py`) for reviewers who may wish to experiment with the TCF dataset. The dataset sample link is provided below (approximately 40GB).  
+
+| Figure. Visualization results of substituting A3M with Performer attention (UniPerf) on TCF benchmark.                                                                                                                                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| With Performer attention, the model matches the energy spectrum in high frequencies better than MNO;<br />the model predictions only correlate to recent 5 steps indicating a faster decay rate than the truth; <br />the TKE error of the predicted $yoz$-crosssection concentrates on the top-bottom boundary, <br />which indicates a potential failure in accurately capturing such axial information compared with A3M. |
+
+| (a) Energy spectrum                                | (b) Time correlation                           | (c) TKE                                              |
+| -------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------- |
+| ![UniPerf_spec](image/README/uniperf_spec_small.png) | ![1743430261076](image/README/1743430261076.png) | ![uniperf_tke](image/README/tcf_tke_uniperf_small.png) |
+
+
+# Others: ChaosMeetsAttention
 
 Dataset details of the paper  "Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction".
 
 The dataset sample of Turbulent Channel Flow is available via the link (https://filebin.net/37p4dxup0t320143)
 
-# Code submission to ICML 2025
+# Others: Code submission to ICML 2025
 
-The code is devloped for modeling large-scale chaos, modifying the base code from the repo [FactFormer].
+The code is devloped for modeling large-scale chaos, modifying the base code from the repo [FactFormer](https://github.com/BaratiLab/FactFormer).
 
 Please incorporate datasets into the `/data` folder and define your local path before you start training or evaluation.
 
