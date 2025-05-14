@@ -141,18 +141,4 @@ Based on this foundation, we share some interesting preliminary results with the
 | -------------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------- |
 | ![UniPerf_spec](image/README/uniperf_spec_small.png) | ![1743430261076](image/README/1743430261076.png) | ![uniperf_tke](image/README/tcf_tke_uniperf_small.png) |
 
-# Others: ChaosMeetsAttention
 
-Dataset details of the paper  "Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction".
-
-~~The dataset sample of Turbulent Channel Flow is available via the link (https://filebin.net/37p4dxup0t320143)~~
-
-The benchmark dataset will be available soon via Zenodo.
-
-# Others: Code submission to ICML 2025
-
-The code is developed for modeling large-scale chaos, modifying the base code from the repo [FactFormer](https://github.com/BaratiLab/FactFormer).
-
-Please incorporate datasets into the `/data` folder and define your local path before you start training or evaluation.
-
-We suggest you try with requesting a GPU card memory larger than 24GB when training.
