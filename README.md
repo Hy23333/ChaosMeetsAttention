@@ -145,11 +145,13 @@ Based on this foundation, we share some interesting preliminary results with the
 
 Dataset details of the paper  "Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction".
 
-The dataset sample of Turbulent Channel Flow is available via the link (https://filebin.net/ykf511hbssaj6kye)
+~~The dataset sample of Turbulent Channel Flow is available via the link (https://filebin.net/37p4dxup0t320143)~~
+
+The benchmark dataset will be available soon via Zenodo.
 
 # Others: Code submission to ICML 2025
 
-The code is devloped for modeling large-scale chaos, modifying the base code from the repo [FactFormer](https://github.com/BaratiLab/FactFormer).
+The code is developed for modeling large-scale chaos, modifying the base code from the repo [FactFormer](https://github.com/BaratiLab/FactFormer).
 
 Please incorporate datasets into the `/data` folder and define your local path before you start training or evaluation.
 
