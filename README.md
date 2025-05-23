@@ -16,26 +16,28 @@ Data generation details are included in the paper Appendix D and G.
 
 The benchmark datasets are available below:
 
-```@dataset{he_2025_14801580,
-  author       = {He, Yi},
-  title        = {Benchmark dataset KF256 for Chaos Meets Attention:
-                   Transformers for Large-Scale Dynamical Prediction
-                  },
-  month        = {may},
-  year         = {2025},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.14801580},
-  url          = {https://doi.org/10.5281/zenodo.14801580},
-}```
-
 ```@dataset{He2025,
-title = {Benchmark dataset Turbulent Channel Flow for Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction},
-author={He, Yi and Xue, Xiao and Hu, Yukun and Yang, Yiming and Cheng, Xiaoyuan and Wang, Hai},
-year={2025},
-month={May},
-url = {https://rdr.ucl.ac.uk/articles/dataset/Benchmark_dataset_Turbulent_Channel_Flow_for_Chaos_Meets_Attention_Transformers_for_Large-Scale_Dynamical_Prediction/29118212},
-doi = {10.5522/04/29118212.v1}
-}```
+title     = {Benchmark dataset Turbulent Channel Flow for Chaos Meets Attention: Transformers for Large-Scale Dynamical Prediction},
+author    = {He, Yi and Xue, Xiao and Hu, Yukun and Yang, Yiming and Cheng, Xiaoyuan and Wang, Hai},
+year      = {2025},
+month     = {May},
+url       = {https://rdr.ucl.ac.uk/articles/dataset/Benchmark_dataset_Turbulent_Channel_Flow_for_Chaos_Meets_Attention_Transformers_for_Large-Scale_Dynamical_Prediction/29118212},
+doi       = {10.5522/04/29118212.v1}
+}
+```
+
+```@dataset{he_2025_14801580,
+title        = {Benchmark dataset KF256 for Chaos Meets Attention:
+                 Transformers for Large-Scale Dynamical Prediction
+                },
+author       = {He, Yi},
+month        = {may},
+year         = {2025},
+publisher    = {Zenodo},
+doi          = {10.5281/zenodo.14801580},
+url          = {https://doi.org/10.5281/zenodo.14801580},
+}
+```
 
 # Others: Supplementay code submission to ICML 2025
 
